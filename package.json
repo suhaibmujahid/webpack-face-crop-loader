@@ -1,6 +1,6 @@
 {
   "name": "webpack-face-crop-loader",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "face crop loader module for webpack",
   "main": "dist/cjs.js",
   "scripts": {
