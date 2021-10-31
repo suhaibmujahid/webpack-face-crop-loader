@@ -85,6 +85,11 @@ Default: `0.5`
 
 Minimum confidence threshold for the face detection model.
 
+## Credits
+
+- [smartcrop.js](https://github.com/jwagner/smartcrop.js)
+- [face-api.js](https://github.com/justadudewhohacks/face-api.js) and the maintained fork [vladmandic/face-api](https://github.com/vladmandic/face-api)
+
 ## License
 
 [MIT](./LICENSE)
