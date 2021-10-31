@@ -36,9 +36,13 @@ export default async function FaceDetectionFaceAPI(
   return faces;
 }
 
-async function loadImage(content: Buffer) {
-  const tensor = await faceapi.tf.tidy(() => {
+// Decodes image using tfjs-node so we don't need external dependencies.
+// The function extracted from vladmandic/face-api's demo example.
+// Source: https://github.com/vladmandic/face-api/blob/eb5501c6728f0690fa7306bc350aafffbc6ae7fe/demo/node.js#L34:L47
+function loadImage(content: Buffer) {
+  return faceapi.tf.tidy(() => {
     const decode = faceapi.tf.node.decodeImage(content, 3);
+
     let expand;
     if (decode.shape[2] === 4) {
       const channels = faceapi.tf.split(decode, 4, 2);
@@ -52,9 +56,7 @@ async function loadImage(content: Buffer) {
     } else {
       expand = faceapi.tf.expandDims(decode, 0);
     }
-    const cast = faceapi.tf.cast(expand, "float32");
-    return cast;
-  });
 
-  return tensor;
+    return faceapi.tf.cast(expand, "float32");
+  });
 }
