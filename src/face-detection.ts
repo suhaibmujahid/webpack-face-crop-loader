@@ -1,6 +1,6 @@
 import path from "path";
 import { memoize } from "lodash";
-import faceapi from "@vladmandic/face-api";
+import * as faceapi from "@vladmandic/face-api";
 import type { ITinyFaceDetectorOptions } from "@vladmandic/face-api";
 
 const loadModel = memoize(() =>
