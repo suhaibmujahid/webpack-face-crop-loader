@@ -15,6 +15,7 @@ $ npm install webpack-face-crop-loader --save-dev
 ```
 
 Then add the loader to your `webpack` config. For example:
+
 **file.js**
 
 ```js
