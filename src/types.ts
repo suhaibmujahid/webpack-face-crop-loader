@@ -1,6 +1,9 @@
 import type { ITinyFaceDetectorOptions } from "@vladmandic/face-api";
 
-export type LoaderOptions = {
+type CropOptions = {
   height?: number;
   width?: number;
-} & ITinyFaceDetectorOptions;
+  minScale?: number;
+};
+
+export type LoaderOptions = CropOptions & ITinyFaceDetectorOptions;

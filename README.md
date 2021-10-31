@@ -61,6 +61,13 @@ Default: `400`
 
 The width of the output image.
 
+### `minScale`
+
+Type: `number`
+Default: `1`
+
+The minimal scale of the crop rect, set to `1` to prevent smaller than necessary crops. Lower than `1` will zoom in if needed (more risk of chopping things off).
+
 ### `inputSize`
 
 Type: `number`

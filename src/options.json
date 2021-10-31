@@ -7,6 +7,9 @@
     "width": {
       "type": "number"
     },
+    "minScale": {
+      "type": "number"
+    },
     "inputSize": {
       "type": "number"
     },

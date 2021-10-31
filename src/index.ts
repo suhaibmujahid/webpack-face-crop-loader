@@ -11,9 +11,7 @@ export const raw = true;
 
 export default async function loader(
   this: LoaderContext<LoaderOptions>,
-  contentBuffer: Buffer,
-  _map: any,
-  meta: any
+  contentBuffer: Buffer
 ): Promise<Buffer> {
   const options = this.getOptions();
 
@@ -22,11 +20,18 @@ export default async function loader(
     baseDataPath: "options",
   });
 
-  const { width = 400, height = 400, ...detectionOptions } = options;
+  const {
+    width = 400,
+    height = 400,
+    minScale = 1,
+    ...detectionOptions
+  } = options;
+
   const faces = await FaceDetection(contentBuffer, detectionOptions);
   const { topCrop } = await smartcrop.crop(contentBuffer, {
-    width: width,
-    height: height,
+    width,
+    height,
+    minScale,
     boost: faces,
   });
 
