@@ -1,0 +1,1 @@
+# webpack-face-crop-loader
