@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "height": {
+      "type": "number"
+    },
+    "width": {
+      "type": "number"
+    },
+    "inputSize": {
+      "type": "number"
+    },
+    "scoreThreshold": {
+      "type": "number"
+    }
+  }
+}
