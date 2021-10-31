@@ -30,10 +30,10 @@ module.exports = {
     rules: [
       {
         test: /\.(png|jpe?g|gif)$/i,
+        include: [path.resolve(__dirname, "pictures_dir")],
         use: [
           {
-            loader: `webpack-face-crop-loader`,
-            include: [path.resolve(__dirname, "pictures_dir")],
+            loader: "webpack-face-crop-loader",
             options: { ...options },
           },
         ],
