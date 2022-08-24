@@ -21,7 +21,7 @@ export default async function FaceDetectionFaceAPI(
   await loadModel();
   const img = await loadImage(content);
 
-  const detections = await faceapi.tinyFaceDetector(img, faceDetectionOptions);
+  const detections = await faceapi.tinyFaceDetector(img as any, faceDetectionOptions);
 
   const faces = detections.map(function ({ box }) {
     return {
@@ -41,10 +41,12 @@ export default async function FaceDetectionFaceAPI(
 // Source: https://github.com/vladmandic/face-api/blob/eb5501c6728f0690fa7306bc350aafffbc6ae7fe/demo/node.js#L34:L47
 function loadImage(content: Buffer) {
   return faceapi.tf.tidy(() => {
+     // @ts-ignore
     const decode = faceapi.tf.node.decodeImage(content, 3);
 
     let expand;
     if (decode.shape[2] === 4) {
+      // @ts-ignore
       const channels = faceapi.tf.split(decode, 4, 2);
       const rgb = faceapi.tf.stack([channels[0], channels[1], channels[2]], 2);
       expand = faceapi.tf.reshape(rgb, [
